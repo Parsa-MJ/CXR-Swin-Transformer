@@ -13,39 +13,7 @@ The goal is to classify five CheXpert findings:
 - Pleural Effusion  
 - No Finding  
 
-The project includes a patient-wise evaluation protocol, statistical significance testing, and interpretability (Grad-CAM).
-
-## 📂 Repository Structure
-
-├── src/
-│   ├── dataset.py            # Dataset loading & preprocessing
-│   ├── models.py             # Swin Transformer + EfficientNet models
-│   ├── train.py              # Training loop, fine-tuning strategy
-│   ├── evaluate.py           # AUC, bootstrap testing, confusion matrix
-│   ├── visualize.py          # Saliency maps (Grad-CAM / Grad-CAM++)
-│   └── utils.py              # Helpers for metrics, LR scheduling, etc.
-│
-├── notebooks/
-│   ├── Swin_Training.ipynb
-│   ├── EfficientNet_Training.ipynb
-│   └── Inference_and_Visualization.ipynb
-│
-├── requirements.txt
-└── README.md
-
-## 📦 Installation
-
-Install dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-Or for Colab:
-
-```
-!pip install timm einops albumentations pydicom scikit-learn
-```
+The project includes a patient-wise evaluation protocol and statistical significance testing
 
 ## 📊 Dataset: CheXpert (Small Subset)
 
@@ -81,8 +49,8 @@ Patient-wise **80/20 split** prevents leakage.
 | Image Size     | 224×224                    |
 | Optimizer      | AdamW                      |
 | Scheduler      | Cosine Annealing           |
-| Loss           | BCE + Focal Loss           |
-| Batch Size     | 64                         |
+| Loss           | BCE           |
+| Batch Size     | 96                         |
 | Epochs         | 10                         |
 | Augmentation   | Flip, rotation, jitter, TA |
 | Interpretability | Grad-CAM                 |
